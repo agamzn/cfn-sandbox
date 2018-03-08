@@ -1,9 +1,5 @@
 [
   {
-    "ParameterKey": "Param1",
-    "ParameterValue": "$[taskcat_genuuid]"
-  },
-  {
     "ParameterKey":"TestParameter",
     "ParameterValue":"Pizza is yummy!"
   }
