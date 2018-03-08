@@ -1,0 +1,35 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "Testing Conditional w Vars as Custom Resources",
+    "Parameters": {
+        "TestParameter":{
+          "Description": "Test Parameter",
+          "Type":"String",
+          "Default":""
+        }
+      },
+      "Conditions": {
+          "UserInputCondition": {
+            "Fn::Not":[{
+              "Fn::Equals": [{ "Ref": "TestParameter"}, "" ]
+            }]
+          }
+      },
+    "Resources": {
+      "TransformedVariableName" : {
+         "Type": "Custom::VariableCondition",
+         "Version" : "1.0",
+         "Properties" : {
+            "key1" : { "Fn::If" : ["UserInputCondition",{ "Ref": "TestParameter"},
+                "<No Value Provided>"] }
+         }
+      }
+    },
+    "Outputs": {
+        "TestParameter":{
+            "Value":{
+              "Fn::GetAtt": ["TransformedVariableName", "key1"]
+            }
+        }
+    }
+}

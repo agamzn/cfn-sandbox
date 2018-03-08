@@ -1,0 +1,14 @@
+---
+global:
+  owner: andglenn@amazon.com
+  qsname: cfn-var-conditional-customresoruce
+  #s3bucket: tonynv
+  regions:
+    - us-east-1
+  reporting: false
+tests:
+  taskcat-test1:
+    parameter_input: var-conditional-with-testparam.json
+    regions:
+      - us-east-1
+    template_file: var-conditional.template
