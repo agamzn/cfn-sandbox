@@ -20,6 +20,7 @@
          "Type": "Custom::VariableCondition",
          "Version" : "1.0",
          "Properties" : {
+           "ServiceToken": {"Ref": "AWS::NoValue" },
             "key1" : { "Fn::If" : ["UserInputCondition",{ "Ref": "TestParameter"},
                 "<No Value Provided>"] }
          }
