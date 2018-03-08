@@ -1,7 +1,7 @@
 ---
 global:
   owner: andglenn@amazon.com
-  qsname: cfn-var-conditional-customresoruce
+  qsname: cfn-sandbox
   #s3bucket: tonynv
   regions:
     - us-east-1
